@@ -1,8 +1,13 @@
-HELP.md
-target/
+/Backend/HELP.md
+/Backend/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+/Backend/!.mvn/wrapper/maven-wrapper.jar
+/Backend/!**/src/main/**/target/
+/Backend/!**/src/test/**/target/
+/Backend/.gitignore
+.gitignore
 
 ### STS ###
 .apt_generated
@@ -31,3 +36,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## Front ##
+/Frontend/node_modules
+/Frontend/.gitignore
