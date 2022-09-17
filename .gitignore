@@ -38,5 +38,5 @@ build/
 .vscode/
 
 ## Front ##
-/Frontend/node_modules
-/Frontend/.gitignore
+/frontend/node_modules
+/frontend/.gitignore
