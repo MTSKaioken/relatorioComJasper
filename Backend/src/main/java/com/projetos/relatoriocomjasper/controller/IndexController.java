@@ -1,16 +1,30 @@
 package com.projetos.relatoriocomjasper.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import com.projetos.relatoriocomjasper.model.EntityModel;
+import com.projetos.relatoriocomjasper.repository.EntityModelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping("/index")
+import java.util.Optional;
+
+@RestController
 public class IndexController {
 
-    @RequestMapping("/imprimir.do")
-    public ModelAndView index(){
-        ModelAndView modelandView = new ModelAndView("index");
-        return modelandView;
+    @Autowired
+    EntityModelRepository entityModelRepository;
+
+    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
+    public EntityModel novoUsuario(@RequestBody EntityModel entityModel){
+        return entityModelRepository.save(entityModel);
+    }
+
+    @RequestMapping(value = "/cadastro/{id}", method = RequestMethod.GET)
+    public Optional<EntityModel> buscarUsuarioPorId(@PathVariable Long id) {
+        return entityModelRepository.findById(id);
+    }
+
+    @RequestMapping(value = "/teste", method = RequestMethod.GET)
+    public String teste(){
+        return "Teste";
     }
 }
